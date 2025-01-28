@@ -99,3 +99,20 @@ tl.fromTo(".image-content", {
   duration: 1,
   
 });
+
+const cursor = document.querySelectorAll('.cursor');
+
+window.addEventListener('mousemove', (e) => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+  cursor.forEach(cur => {
+    cur.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  });
+});
+
+gsap.to("#js-section-two", {
+  duration: 10,
+  backgroundPosition: "0% 100%", // Movimento do gradiente
+  
+  ease: "power1.inOut" // Suaviza a animação
+});
