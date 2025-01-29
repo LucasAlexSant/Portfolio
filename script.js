@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin);
+gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, ScrollSmoother);
 
 const tl = gsap.timeline({
   defaults: { duration: 1 },
@@ -100,6 +100,8 @@ tl.fromTo(".image-content", {
   
 });
 
+
+// --------------CURSOR PERSONALIZADO--------------
 const cursor = document.querySelectorAll('.cursor');
 
 window.addEventListener('mousemove', (e) => {
@@ -110,9 +112,96 @@ window.addEventListener('mousemove', (e) => {
   });
 });
 
+// --------------FUNDO GRANULADO ANIMADO--------------
 gsap.to("#js-section-two", {
   duration: 10,
   backgroundPosition: "0% 100%", // Movimento do gradiente
   
   ease: "power1.inOut" // Suaviza a animação
+});
+
+//-----------SMOOTHER--------------
+
+const smoother = ScrollSmoother.create({
+  
+  smooth:3,
+  effects: true
+})
+
+smoother.effects("img", {speed: "auto"});  
+
+
+
+//-----------ANIMÇÃO DE TRANSIÇÃO SECTION ABOUT--------------
+
+const tl2 = gsap.timeline();
+
+tl2.fromTo(".section-about", 
+  { yPercent: 0 }, // Estado inicial
+  { yPercent: -170} // Estado final
+);
+
+ScrollTrigger.create({
+  animation: tl2,
+  trigger: "#section-two",
+  start: "top top",
+  end: "bottom top",
+  scrub: true,
+  anticipatePin: true,
+  pinSpacing: false,
+  markers: true,
+});
+
+//-----------------TROCA DE IMAGENS SECTION ABOUT------------------
+
+const images = [
+  "assets/images/Bloomberg.jpeg",
+  "assets/images/casasBahia.jpeg",
+  "assets/images/Oracle.jpeg"
+];
+
+let index = 0; // Índice da imagem atual
+const imageElement = document.getElementById("aboutImage");
+
+function changeImage() {
+  
+  gsap.to(imageElement, {
+      opacity: 0,  
+      duration: 1,
+      onComplete: () => {
+          // Troca a imagem
+          index = (index + 1) % images.length; 
+          imageElement.src = images[index];
+          
+          
+          gsap.to(imageElement, {
+              opacity: 1, 
+              duration: 0.5
+          });
+      }
+  });
+}
+
+// Troca a imagem a cada 3 segundos
+setInterval(changeImage, 8000);
+
+//--------------------------------------------------------
+
+const aboutText = new SplitText("#aboutText", {
+  type: "words",  // "words", "chars", ou "lines"
+});
+
+// Cria a animação com ScrollTrigger
+gsap.from(aboutText.words, {
+  scrollTrigger: {
+    trigger: "#aboutText", 
+    start: "top 100%", 
+    end: "bottom 20%", 
+    
+  },
+  duration: 0.8,
+  opacity: 0,
+  y: 50, 
+  stagger: 0.05, 
+  ease: "power2.out",
 });

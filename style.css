@@ -1,28 +1,28 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  background-color: #ED145B;
-  
+body {
+  background-color: #ed145b;
 }
 
-header{
+header {
   display: flex;
   justify-content: center;
 }
-.navbar{
+.navbar {
   /* border: #ED145B 3px solid; */
-    position: fixed; 
-    top: 0;
-    padding: 1rem;
-    z-index: 1000; 
-    border-radius: 20px;
+  position: fixed;
+  top: 0;
+  padding: 1rem;
+  z-index: 1000;
+  border-radius: 20px;
 }
 
-ul, li {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -31,44 +31,43 @@ ul, li {
 
 .nav-list {
   display: flex;
-  justify-content: center; 
-  gap: 20px; 
+  justify-content: center;
+  gap: 20px;
 }
 
 .nav-list li a:hover {
-  color: #ED145B; /* Destaque no hover */
+  color: #ed145b; /* Destaque no hover */
 }
 
 .nav-list li a {
   text-decoration: none;
-  color: #D1D5DB;
+  color: #d1d5db;
   transition: color 0.3s ease;
 }
 
-.section{
+.section {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
   background-color: #313a49;
-  color: #ED145B;
+  color: #ed145b;
   &.two {
     background-color: #171d26;
     height: 100vh;
     background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-
   }
-
 }
 
-#palavra1, #palavra2, #palavra3{
-margin: 40px;
-position: absolute;
-font-weight: bold;
-font-size: 8rem;
-clip-path: inset(0 0 0 0);
-
+#palavra1,
+#palavra2,
+#palavra3 {
+  margin: 40px;
+  position: absolute;
+  font-weight: bold;
+  font-size: 8rem;
+  clip-path: inset(0 0 0 0);
 }
 
 .container-1 {
@@ -81,7 +80,6 @@ clip-path: inset(0 0 0 0);
   gap: 20px;
 }
 
-
 .text-content {
   flex: 1;
   text-align: left;
@@ -89,13 +87,13 @@ clip-path: inset(0 0 0 0);
 
 .text-content h1 {
   font-size: 3rem;
-  color: #ED145B;
+  color: #ed145b;
   margin: 0;
 }
 
 .text-content h2 {
   font-size: 1.5rem;
-  color: #D1D5DB;
+  color: #d1d5db;
 }
 
 /* Imagem à direita */
@@ -108,6 +106,7 @@ clip-path: inset(0 0 0 0);
   width: 500px;
   height: 500px;
   object-fit: cover;
+  object-position: top;
   border-radius: 50%;
   border: 5px solid #333;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -115,15 +114,52 @@ clip-path: inset(0 0 0 0);
 
 .cursor {
   position: fixed;
-    left: 0;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #ed145c23;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    transition: transform 0.2s ease-out; /* Transição de 0.2s */
+  left: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ed145c23;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.2s ease-out; /* Transição de 0.2s */
+}
 
+/* --------------------------ABOUT----------------------- */
+
+.about-content {
+  display: flex;
+  margin: 100px;
+  justify-content: space-between; /* Espaço entre texto e imagem */
+}
+
+.section-about {
+  padding: 100px 0;
+  height: 100vh;
+  position: absolute;
+}
+
+.text-about {
+  font-size: 1.5rem;
+  width: 40vw;
+  color: #d1d5db;
+}
+& h1 {
+  color: #ed145b;
+}
+
+.image-about {
+  overflow: hidden;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-about img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
 }
