@@ -9,7 +9,7 @@ const tl = gsap.timeline({
 const body = document.body;
 
 function disableScroll() {
-  body.style.overflow = "hidden";
+  body.style.overflow = "auto";
 }
 
 function enableScroll() {
@@ -138,18 +138,18 @@ const tl2 = gsap.timeline();
 
 tl2.fromTo(".section-about", 
   { yPercent: 0 }, // Estado inicial
-  { yPercent: -170} // Estado final
+  { yPercent: 0, ease: "none" } // Estado final (subindo)
 );
 
 ScrollTrigger.create({
   animation: tl2,
-  trigger: "#section-two",
+  trigger: ".section-about",
   start: "top top",
   end: "bottom top",
   scrub: true,
-  anticipatePin: true,
-  pinSpacing: false,
-  markers: true,
+  pinSpacing: false, 
+  // markers: true, 
+  
 });
 
 //-----------------TROCA DE IMAGENS SECTION ABOUT------------------
@@ -205,3 +205,32 @@ gsap.from(aboutText.words, {
   stagger: 0.05, 
   ease: "power2.out",
 });
+
+//---------------------section-skills------------------------------------
+
+
+const tl3 = gsap.timeline({
+  scrollTrigger: {
+      trigger: ".section-skills",
+      start: "top 80%", 
+      toggleActions: "play none none none"
+  }
+});
+
+// Efeito de Scramble no título
+tl3.fromTo("#scramble-text", 
+  { opacity: 0 },  
+  { 
+    opacity: 1, 
+    duration: 2, 
+    scrambleText: "Algumas tecnologias que utilizo para desenvolver aplicações web.",
+    ease: "power2.out"
+  }
+);
+
+// Animação para os cards
+tl3.fromTo(".skills", 
+  { opacity: 0, y: 100 }, // Estado inicial
+  { opacity: 1, y: 0, duration: 0.8, stagger: 0.5, ease: "power3.out" }, 
+  
+);
