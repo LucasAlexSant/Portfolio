@@ -9,7 +9,7 @@ const tl = gsap.timeline({
 const body = document.body;
 
 function disableScroll() {
-  body.style.overflow = "auto";
+  body.style.overflow = "hidden";
 }
 
 function enableScroll() {
@@ -230,7 +230,9 @@ tl3.fromTo("#scramble-text",
 
 // Animação para os cards
 tl3.fromTo(".skills", 
-  { opacity: 0, y: 100 }, // Estado inicial
+  { opacity: 0, y: 100 }, 
   { opacity: 1, y: 0, duration: 0.8, stagger: 0.5, ease: "power3.out" }, 
   
 );
+
+//---------------------section-projects------------------------------------
