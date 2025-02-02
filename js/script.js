@@ -16,7 +16,6 @@ function enableScroll() {
   body.style.overflow = "auto";
 }
 
-// Animação de clip-path adicionada à timeline
 tl.fromTo(
   "#js-section-two",
   { "clip-path": "inset(50% 0% 50% 0%)" },
@@ -130,7 +129,18 @@ const smoother = ScrollSmoother.create({
 
 smoother.effects("img", {speed: "auto"});  
 
+document.querySelectorAll(".navbar a").forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault(); 
 
+    const targetId = this.getAttribute("href").substring(1);
+    const targetSection = document.getElementById(targetId);
+
+    if (targetSection) {
+      smoother.scrollTo(targetSection, true, "top top");
+    }
+  });
+});
 
 //-----------ANIMÇÃO DE TRANSIÇÃO SECTION ABOUT--------------
 
@@ -235,4 +245,20 @@ tl3.fromTo(".skills",
   
 );
 
-//---------------------section-projects------------------------------------
+//---------------------NAVBAR------------------------------------
+
+
+const menuIcon = document.getElementById('menu-icon');
+const navList = document.getElementById('nav-list');
+const navLinks = document.querySelectorAll('.nav-list li a'); 
+
+
+menuIcon.addEventListener('click', () => {
+    navList.classList.toggle('active');
+});
+
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+      navList.classList.remove('active');
+  });
+});

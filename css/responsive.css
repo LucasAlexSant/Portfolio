@@ -1,0 +1,105 @@
+/* Telas menores (celulares até 768px) */
+@media (max-width: 768px) {
+  .text-content h1 {
+    font-size: 2rem;
+  }
+
+.cursor{
+    display: none;
+}
+
+  .text-content h2 {
+    font-size: 1rem;
+  }
+  .container-1 {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .text-about {
+    font-size: 1.2rem;
+    max-width: 90%; /* Ajuste para que o texto ocupe mais espaço na tela */
+  }
+
+  .image-about {
+    height: 300px;
+    width: 300px;
+  }
+
+  .curriculo {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .profile-photo {
+    width: 300px;
+    height: 300px;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #palavra1,
+  #palavra2,
+  #palavra3 {
+    font-size: 2.5rem;
+  }
+
+
+  .nav-list {
+    display: none; 
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px; 
+    right: 0;
+    background-color: #313a49;
+    padding: 10px;
+    height: 100vh;
+align-items: center;
+    width: 100%;
+}
+
+.navbar{
+    padding: 10px;
+    width: 100%;
+}
+
+.nav-list li a { 
+    color: #d1d5db;
+    font-size: 3rem;
+  }
+
+.nav-list.active {
+    display: flex; /* Exibe o menu quando a classe "active" for adicionada */
+}
+
+.menu-icon {
+    display: block;
+    color: #ed145b;
+}
+
+
+}
+
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .container-1 {
+    max-width: 90%;
+  }
+
+  .profile-photo {
+    width: 400px;
+    height: 400px;
+  }
+}
