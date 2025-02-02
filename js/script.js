@@ -9,7 +9,7 @@ const tl = gsap.timeline({
 const body = document.body;
 
 function disableScroll() {
-  body.style.overflow = "hidden";
+  body.style.overflow = "auto";
 }
 
 function enableScroll() {
