@@ -192,7 +192,7 @@ function changeImage() {
   });
 }
 
-// Troca a imagem a cada 3 segundos
+
 setInterval(changeImage, 8000);
 
 //--------------------------------------------------------
@@ -262,3 +262,46 @@ navLinks.forEach(link => {
       navList.classList.remove('active');
   });
 });
+
+//------------------------SECTION-PROJECTS----------------------------------
+
+
+document.querySelectorAll(".project").forEach((project, index) => {
+  gsap.fromTo(
+    project,
+    { opacity: 0, y: 100 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: project,
+        start: "top 50%", 
+        toggleActions: "play none none none",
+      },
+    }
+  );
+});
+
+
+//------------------------SECTION-CONTACT----------------------------------
+
+const tl4 = gsap.timeline({
+  scrollTrigger: {
+      trigger: ".section-contact",
+      start: "top 80%", 
+      toggleActions: "play none none none"
+  }
+});
+
+
+
+// Animação para os cards
+tl4.fromTo(".contact-card", 
+  { opacity: 0, y: 100 }, 
+  { opacity: 1, y: 0, duration: 0.8, stagger: 0.5, ease: "power3.out" }, 
+  
+);
+
+

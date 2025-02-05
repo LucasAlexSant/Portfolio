@@ -198,6 +198,7 @@ li {
   color: #ed145c;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
+  
 }
 
 .curriculo:hover {
@@ -207,11 +208,18 @@ li {
   box-shadow: 0 4px 10px rgba(237, 20, 92, 0.5); 
 }
 
+.curriculo a {
+  text-decoration: none; 
+  color: inherit; 
+  display: block; 
+}
+
+
 /* -------------------------------------------------------- */
 
 
 .section-skills{
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   text-align: center;
